@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Zhoushan H3 Storage Local</title>
+  <style>
+    body { margin: 0; color: #17252e; background: #f4f7f8; font: 17px/1.65 system-ui, sans-serif; }
+    main { max-width: 760px; margin: 48px auto; padding: 32px; background: white; border-radius: 12px; }
+    h1, h2 { line-height: 1.25; } h2 { margin-top: 32px; font-size: 1.25em; }
+    a { color: #075b79; } nav a { display: inline-block; margin-right: 20px; }
+    .notice { padding: 12px 16px; background: #fff4d9; border-left: 4px solid #9d7624; }
+    code { overflow-wrap: anywhere; } footer { margin-top: 36px; color: #52616a; font-size: .9em; }
+    @media (max-width: 600px) { main { margin: 0; padding: 24px; border-radius: 0; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Privacy policy</h1>
+  <p>Zhoushan H3 Storage Local · Last updated October 6, 2026</p>
+  <p class="notice">This policy describes the private single-owner deployment. The tool is not a public hosted service and this page does not claim OAuth verification.</p>
+  <nav aria-label="Application information"><a href="index.html">Application home</a><a href="terms.html">Terms of use</a></nav>
+  <h2>Purpose and Google permission</h2>
+  <p>The helper uses Google Drive to reuse the owner's existing H3 cache and retain verified generation results. It requests only <code>https://www.googleapis.com/auth/drive.file</code>. This scope permits read and write access to files selected for the app and files it creates. The cache-transfer implementation reads the existing cache; backups may create or update app files. The permission is not read-only.</p>
+  <h2>Data accessed or created</h2>
+  <p>The selected existing cache consists of four model weight files, one prepared environment archive, and two verification receipts. File names, selected file identifiers, sizes, checksums, and receipt contents are used to validate that cache. Google account identity and storage quota may be checked to confirm the intended account and available storage.</p>
+  <p>A generation job processes its prompt and workflow settings and produces video and audio. Associated operational records may include job identifiers, timestamps, durations, SHA256 hashes, GPU and runtime observations, and compute usage records or estimates. An estimate is not a Google billing statement.</p>
+  <h2>Where processing happens</h2>
+  <p>For this deployment, processing involves Google services, the owner's host computer, and the Colab runtime the owner authorizes. The helper does not publish the model cache or generated media and does not send these files to advertising or third-party analytics services. It does not sell the owner's Google user data.</p>
+  <p>The owner controls the host and authorizes job execution. Google provides authorization, Drive storage, and Colab infrastructure under its own policies. Selected cache files are read directly into the runtime's temporary SSD, and results are returned to the host for verification and private backup.</p>
+  <h2>Credentials and safeguards</h2>
+  <p>OAuth refresh credentials remain on the owner's Linux host in an owner-only directory with mode <code>0700</code> and credential files with mode <code>0600</code>. They are used to obtain short-lived access tokens. Refresh credentials and client configuration are not supplied to the Colab worker.</p>
+  <p>The worker receives a short-lived access token in a private, job-scoped file. Token values are excluded from public job envelopes and operational logs. Cleanup removes the temporary token file and releases the runtime; credential expiry, revocation, or a failed job can still require owner action. These safeguards are not a guarantee of permanent access or uninterrupted service.</p>
+  <h2>Retention and deletion</h2>
+  <p>Existing cache files and completed backups remain in the owner's Google Drive until the owner removes them. Host copies and operational records remain until the owner deletes them. Runtime SSD files are temporary and must not be treated as a durable backup; release of the runtime removes access to that temporary filesystem.</p>
+  <p>To end account access, revoke this app's grant through <a href="https://myaccount.google.com/connections">Google Account connections</a> and delete the local OAuth credentials. Cancel or complete any active job and confirm its runtime is released. Stopping, uninstalling, or restoring the local helper does not automatically delete Google Drive files. Deleting credentials may require fresh authorization to use the helper again.</p>
+  <h2>Questions and changes</h2>
+  <p>Use the support contact shown on the Google authorization consent screen for questions about this private deployment. A material change in permissions, recipients, or purpose should be reviewed by the owner before use.</p>
+  <footer>Google's handling of service data is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. Return to the <a href="index.html">application home</a>.</footer>
+</main>
+</body>
+</html>

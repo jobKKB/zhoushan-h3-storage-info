@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Owner-controlled Google Drive cache access for a private local H3 video workflow.">
+  <title>Zhoushan H3 Storage Local</title>
+  <style>
+    body { margin: 0; color: #17252e; background: #f4f7f8; font: 17px/1.65 system-ui, sans-serif; }
+    main { max-width: 760px; margin: 48px auto; padding: 32px; background: white; border-radius: 12px; }
+    h1, h2 { line-height: 1.25; } h2 { margin-top: 32px; font-size: 1.25em; }
+    a { color: #075b79; } nav a { display: inline-block; margin-right: 20px; }
+    .notice { padding: 12px 16px; background: #fff4d9; border-left: 4px solid #9d7624; }
+    code { overflow-wrap: anywhere; } footer { margin-top: 36px; color: #52616a; font-size: .9em; }
+    @media (max-width: 600px) { main { margin: 0; padding: 24px; border-radius: 0; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Zhoushan H3 Storage Local</h1>
+  <p>A private storage helper for one owner running a local H3 video workflow with an authorized Google Colab GPU.</p>
+  <p class="notice">This is a private single-owner tool. This information page does not offer a public hosted service or claim Google OAuth verification.</p>
+  <nav aria-label="Application information"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></nav>
+  <h2>What the helper does</h2>
+  <p>The helper reuses an existing private Google Drive cache: four model weight files, one prepared runtime archive, and two verification receipts. It checks the selected files, restores the prepared environment, and verifies file sizes and SHA256 hashes before using the models.</p>
+  <p>For an authorized generation job, selected cache files are transferred to the Colab runtime's temporary SSD without mounting Drive. Generated video, workflow evidence, and operational records can be downloaded to the owner's host and backed up to the owner's Drive.</p>
+  <h2>Why Google authorization is needed</h2>
+  <p>The requested Google Drive scope is <code>https://www.googleapis.com/auth/drive.file</code>. It permits reading and modifying files selected for this app and creating app files, including backups. It is not a read-only permission and does not grant access to every Drive file.</p>
+  <p>The owner chooses the cache files through Google's file-selection authorization flow. Long-lived refresh credentials stay on the owner's host. An authorized Colab runtime receives only a short-lived access token for its bounded job.</p>
+  <h2>Owner-controlled operation</h2>
+  <p>This is a single-owner local tool with no public registration or shared media gallery. It does not publish model files or generated media. Operational records support verification and usage reporting; they are not used for advertising or third-party analytics.</p>
+  <p>Colab storage is temporary. A completed local download or Drive backup must be verified before it is treated as a lasting copy. Google authorization can expire or require renewal, and Google compute or storage charges may apply to the owner's account.</p>
+  <footer>Questions: use the support contact shown on the Google authorization consent screen. Read the <a href="privacy.html">privacy policy</a> and <a href="terms.html">terms of use</a> before granting access.</footer>
+</main>
+</body>
+</html>
